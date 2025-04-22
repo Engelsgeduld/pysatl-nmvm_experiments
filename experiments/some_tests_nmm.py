@@ -23,12 +23,17 @@ mixture = NormalMeanMixtures(**mixture_params)
 values = np.linspace(-2, 2, 40)
 rqmc_params = {"error_tolerance": 0.001, "i_max": 300}
 
+pdf_result = np.vectorize(mixture.compute_pdf)(values, rqmc_params)
+cdf_result = np.vectorize(mixture.compute_cdf)(values, rqmc_params)
+
 result = np.array(
     [
         values,
-        np.vectorize(mixture.compute_pdf)(values, rqmc_params)[0].T,
+        pdf_result[0].T,
+        pdf_result[1].T,
         mult_t.pdf(values).T,
-        np.vectorize(mixture.compute_cdf)(values, rqmc_params)[0].T,
+        cdf_result[0].T,
+        cdf_result[1].T,
         mult_t.cdf(values).T,
     ]
 )
@@ -38,8 +43,10 @@ df = pd.DataFrame(
     columns=[
         "x",
         "mixture_pdf",
+        "rqmc_pdf_eps",
         "skew_pdf",
         "mixture_cdf",
+        "rqmc_cdf_eps",
         "skew_cdf",
     ],
 )
