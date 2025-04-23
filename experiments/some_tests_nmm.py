@@ -57,9 +57,9 @@ df["cdf_mae"] = mean_absolute_error(df["skew_cdf"], df["mixture_cdf"])
 df["cdf_rmse"] = root_mean_squared_error(df["skew_cdf"], df["mixture_cdf"])
 df["pdf_max_dif"] = np.max(np.abs(df["skew_pdf"] - df["mixture_pdf"]))
 df["cdf_max_dif"] = np.max(np.abs(df["skew_cdf"] - df["mixture_cdf"]))
-df["mix_moment_1"] = mixture.compute_moment(1, rqmc_params)[0]
+df["mix_moment_1"] = mixture.compute_moment(1, {})[0]
 df["skew_moment_1"] = mult_t.moment(1)
-df["mix_moment_2"] = mixture.compute_moment(2, rqmc_params)[0]
+df["mix_moment_2"] = mixture.compute_moment(2, {})[0]
 df["skew_moment_2"] = mult_t.moment(2)
 
 df.to_csv("nmm.csv", index=False)
