@@ -118,8 +118,8 @@ class SemiParametricGEstimationGivenMu:
         return expon_factor * psi_factor * derivative_psi_factor
 
     def precompute_u_integrals(self) -> None:
-        self.first_u_integrals = np.zeros((self.grid_size, self.n), dtype=np.complex_)
-        self.second_u_integrals = np.zeros((self.grid_size, self.n), dtype=np.complex_)
+        self.first_u_integrals = np.zeros((self.grid_size, self.n), dtype=np.complex128)
+        self.second_u_integrals = np.zeros((self.grid_size, self.n), dtype=np.complex128)
 
         for i, v in enumerate(self.v_grid):
             self.first_u_integrals[i] = quad_vec(
