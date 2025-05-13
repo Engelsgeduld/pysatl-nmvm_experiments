@@ -1,5 +1,3 @@
-from typing import Self
-
 from numpy import _typing
 
 from src.algorithms import ALGORITHM_REGISTRY
@@ -38,7 +36,7 @@ class AbstractEstimator:
     def get_params(self) -> dict:
         return {"algorithm_name": self.algorithm_name, "params": self.params, "estimated_result": self.estimate_result}
 
-    def set_params(self, algorithm_name: str, params: dict | None = None) -> Self:
+    def set_params(self, algorithm_name: str, params: dict | None = None) -> "AbstractEstimator":
         self.algorithm_name = algorithm_name
         if params is None:
             self.params = dict()

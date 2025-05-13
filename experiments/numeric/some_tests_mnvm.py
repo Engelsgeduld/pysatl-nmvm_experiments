@@ -64,4 +64,4 @@ df["gig_moment_1"] = mult_t.moment(1)
 df["mix_moment_2"] = mixture.compute_moment(2, rqmc_params)[0]
 df["gig_moment_2"] = mult_t.moment(2)
 
-df.to_csv("nmvm.csv", index=False)
+df.to_csv("nmv_nv.csv", index=False)
