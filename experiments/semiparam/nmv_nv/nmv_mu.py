@@ -20,8 +20,8 @@ def generate_nmvm_samples(real_mu: float, n: int, mixing_dist) -> np.ndarray:
 
 
 REAL_MU = [0, 1, 2, 5]
-SAMPLE_SIZES = 100000
-NUM_SIMULATIONS = 100
+SAMPLE_SIZES = 10000
+NUM_SIMULATIONS = 200
 
 distributions = [(expon(1), "expon"), (pareto(2), "pareto")]
 

@@ -18,7 +18,7 @@ for mu in [0, 1]:
         generator = NMVGenerator()
         sample = generator.canonical_generate(mixture, 10000)
 
-        x_values = np.linspace(0.1, 3, 100000)
+        x_values = np.linspace(0.1, 3, 1000)
         estimator_given_mu = NMVSemiParametricEstimator(
             "g_estimation_given_mu", {"x_data": x_values, "u_value": 7.6, "v_value": 0.9, "mu": mu, "grid_size": 200}
         )
